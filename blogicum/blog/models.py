@@ -7,7 +7,6 @@ User = get_user_model()
 
 
 class Location(BaseModel):
-    """Местоположение."""
 
     name = models.CharField(max_length=256, verbose_name="Название места")
 
@@ -20,7 +19,6 @@ class Location(BaseModel):
 
 
 class Category(BaseModel, BaseTitle):
-    """Категория."""
 
     description = models.TextField(verbose_name="Описание")
     slug = models.SlugField(
@@ -39,7 +37,6 @@ class Category(BaseModel, BaseTitle):
 
 
 class Post(BaseModel, BaseTitle):
-    """Публикация."""
 
     text = models.TextField(verbose_name="Текст")
     pub_date = models.DateTimeField(

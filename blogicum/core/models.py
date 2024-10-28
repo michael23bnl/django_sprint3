@@ -2,7 +2,6 @@ from django.db import models
 
 
 class BaseModel(models.Model):
-    """Базовая модель."""
 
     is_published = models.BooleanField(
         default=True,
@@ -18,7 +17,6 @@ class BaseModel(models.Model):
 
 
 class BaseTitle(models.Model):
-    """Базовая модель заголовка."""
 
     title = models.CharField(max_length=256, verbose_name='Заголовок')
 

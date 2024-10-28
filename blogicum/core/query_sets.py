@@ -3,8 +3,7 @@ from django.utils import timezone
 
 
 def post_query():
-    """Вернуть результат запроса к таблице blog_post."""
-    date_now = timezone.now()
+    """Результат запроса к таблице blog_post."""
     query_set = (
         Post.objects.select_related(
             "category",
@@ -21,7 +20,7 @@ def post_query():
             "location__name",
         )
         .filter(
-            pub_date__lte=date_now,
+            pub_date__lte=timezone.now(),
             is_published=True,
             category__is_published=True,
         )
@@ -30,8 +29,6 @@ def post_query():
 
 
 def category_query():
-    """Вернуть результат запроса к таблице blog_category."""
-    query_set = Category.objects.values("title", "description").filter(
-        is_published=True
-    )
+    """Результат запроса к таблице blog_category."""
+    query_set = Category.objects.filter(is_published=True)
     return query_set
